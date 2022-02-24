@@ -5,7 +5,7 @@
 #include "chain.h"
 #include "hashmap.h"
 
-int P = 10000, R = 132; //default setting of hashmap 
+const int P = 10000, R = 132; //default setting of hashmap 
 
 struct hashmap_t *hashmap_create(int p, int r) {
 	struct hashmap_t *hm = malloc(sizeof(struct hashmap_t));
