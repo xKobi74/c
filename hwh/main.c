@@ -87,9 +87,19 @@ int main() {
 	char *text, *keys;
 	struct hashmap_t *hm;
 	input(&n, &n1, &text, &n2, &keys);
-	hm = hashmap_create(0, 0);
+	hm = hashmap_create(5, 15);
+
 	hashmap_fill(hm, text);
 	hashmap_search(hm, keys);
+	hashmap_print(hm);
+	hashmap_rehash(hm, 3, 4);
+	hashmap_search(hm, keys);
+	hashmap_print(hm);
+	hashmap_rehash(hm, 1, 18);
+	hashmap_search(hm, keys);
+	hashmap_rehash(hm, 10, 67);
+	hashmap_search(hm, keys);
+	
 	hashmap_destroy(hm);
 	free(text);
 	free(keys);

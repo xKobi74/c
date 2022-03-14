@@ -34,9 +34,15 @@ void chain_add(struct chain_t *cur, const char *key, int count) {
 		cur->count += count;
 }
 
-int chain_find(const struct chain_t *ch, const char *key) {
-	for (ch; ch != NULL && strcmp(key, ch->key) != 0; ch = ch->next);
+void chain_insert(struct chain_t *cur, const char *key, int count) {
+	struct chain_t *pre = cur;
+	cur = chain_create(key, count);
+	cur->next = pre;
+}
+
+struct chain_t *chain_find(struct chain_t *ch, const char *key, int n) {
+	for (ch; ch != NULL && strcmp(key, ch->key) != 0 && n != 0; ch = ch->next);
 	if (ch == NULL)
-		return 0;
-	return ch->count;
+		return NULL;
+	return ch;
 }

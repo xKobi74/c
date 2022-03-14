@@ -1,8 +1,9 @@
 compile:
 	gcc main.c hashmap.c chain.c
 
-test: compile
-	valgrind ./a.out < in.txt 
+test:
+	gcc main.c hashmap.c chain.c -g
+	valgrind ./a.out < 1.txt 
 
 start: compile
-	./a.out < in.txt
+	./a.out < 2.txt
