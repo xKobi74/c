@@ -56,7 +56,8 @@ int str_hash(const struct hashmap_t *hm, const char *key) {
 	int i, mult = 1, hash = 0;
 	for (i = 0; key[i] != '\0'; ++i) {
 		hash = (hash + (mult * key[i]) % hm->p) % hm->p;
-		mult = (mult * hm->r) % hm->p;
+		mult 
+		= (mult * hm->r) % hm->p;
 	}
 	return hash;
 }
